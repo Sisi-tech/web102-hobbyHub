@@ -11,7 +11,7 @@ function App() {
   
 
   return (
-    <div className='w-full h-screen bg-gray-200'>
+    <div className='w-full h-min-screen bg-gray-200'>
       <BrowserRouter>
         <div className='w-full flex justify-around items-center bg-emerald-400 p-2 text-white text-xl'>
           <h2 className='text-2xl'>HubbyHub</h2>
