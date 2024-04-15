@@ -25,29 +25,41 @@ const CreatePost = () => {
         <div className="h-screen flex flex-col gap-6 justify-center items-center">
             <h2 className="text-3xl shadow-md">Create a new Post</h2>
             <form className="flex flex-col gap-6 bg-gray-50 p-6 pt-10 pb-10 rounded-xl">
-                <input 
-                    type="text" 
-                    placeholder="Title" 
-                    value={post.title} 
-                    className='p-2 border-2 rounded-xl'
-                    onChange={handleChange}
-                />
-                <textarea
-                    type="text" 
-                    rows="8" 
-                    cols="60" 
-                    placeholder="Content(Optional)" 
-                    value={post.content} 
-                    className="p-2 border-2 rounded-xl"
-                    onChange={handleChange}
-                />
-                <input 
-                    type="text" 
-                    placeholder="Image URL(Optional)" 
-                    className="p-2 border-2 rounded-xl"
-                    value={post.imgUrl}
-                    onChange={handleChange}
-                />
+                <div className="flex flex-col">
+                    <label htmlFor="title" className="pl-2">Title</label>
+                    <input 
+                        id="title"
+                        name="title"
+                        type="text" 
+                        value={post.title} 
+                        onChange={handleChange}
+                        className='p-2 border-2 rounded-xl'
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="content" className="pl-2">Content(Optional)</label>
+                    <textarea
+                        id="content"
+                        name="content"
+                        type="text" 
+                        rows="8" 
+                        cols="60" 
+                        value={post.content} 
+                        onChange={handleChange}
+                        className="p-2 border-2 rounded-xl"
+                    />
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="imageUrl" className="pl-2">ImageUrl(Optional)</label>
+                    <input 
+                        id="imageUrl"
+                        name="imageUrl"
+                        type="text" 
+                        value={post.imgUrl}
+                        onChange={handleChange}
+                        className="p-2 border-2 rounded-xl"
+                    />
+                </div>
                 <button 
                     type="button"
                     className="bg-emerald-400 w-[200px] p-2 border-2 rounded-xl"
