@@ -6,6 +6,10 @@ const CreatePost = () => {
 
     const createPost = async (e) => {
         e.preventDefault();
+        if (post.title.trim().length == 0) {
+            alert("Please enter a title");
+            return;
+        }
         await supabase
             .from("hubbyHub")
             .insert({title: post.title, content: post.content, imgUrl: post.imgUrl});
@@ -19,6 +23,21 @@ const CreatePost = () => {
             ...prev,
             [name]: value,
         }));
+    };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            setPost((prev) => ({
+                ...prev,
+                imgUrl: reader.result,
+            }));
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
     };
 
     return (
@@ -50,15 +69,16 @@ const CreatePost = () => {
                     />
                 </div>
                 <div className="flex flex-col">
-                    <label htmlFor="imageUrl" className="pl-2">ImageUrl(Optional)</label>
-                    <input 
-                        id="imageUrl"
-                        name="imageUrl"
-                        type="text" 
-                        value={post.imgUrl}
-                        onChange={handleChange}
+                    <label htmlFor="image" className="pl-2">ImageUrl(Optional)</label>
+                    <input
+                        id="image"
+                        name="imgUrl"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
                         className="p-2 border-2 rounded-xl"
                     />
+                    {post.imgUrl && <img src={post.imgUrl} alt="Uploaded image" className="mt-2 w-[200px]" />}
                 </div>
                 <button 
                     type="button"
