@@ -6,6 +6,7 @@ const CreatePost = () => {
 
     const createPost = async (e) => {
         e.preventDefault();
+        
         if (post.title.trim().length == 0) {
             alert("Please enter a title");
             return;
