@@ -11,6 +11,7 @@ const CreatePost = () => {
             alert("Please enter a title");
             return;
         }
+        
         await supabase
             .from("hubbyHub")
             .insert({title: post.title, content: post.content, imgUrl: post.imgUrl});
