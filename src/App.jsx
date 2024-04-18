@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from "./component/Home";
 import CreatePost from "./pages/CreatePost";
 import EditPost from "./pages/EditPost";
+import ReadPost from "./pages/ReadPost";
 
 function App() {
   
@@ -21,7 +21,7 @@ function App() {
           </div>
         </div>
         <Routes>
-          <Route path="/" element={<Home /> } />
+          <Route path="/" element={<ReadPost /> } />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/edit" element={<EditPost /> } />
         </Routes>

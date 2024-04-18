@@ -6,12 +6,11 @@ const CreatePost = () => {
 
     const createPost = async (e) => {
         e.preventDefault();
-        
         if (post.title.trim().length == 0) {
             alert("Please enter a title");
             return;
         }
-        
+        console.log(hello);
         await supabase
             .from("hubbyHub")
             .insert({title: post.title, content: post.content, imgUrl: post.imgUrl});
