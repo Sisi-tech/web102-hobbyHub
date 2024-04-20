@@ -66,7 +66,7 @@ const ReadPost = () => {
                             time={getTimeDifference(post.created_at)}
                             title={post.title}
                             content={post.content}
-                            src={post.imgUrl}
+                            src={post.img_url}
                         />
                     ) : []
                 }

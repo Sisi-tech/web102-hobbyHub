@@ -34,7 +34,7 @@ const CreatePost = () => {
                 console.log("Reader result:", reader.result); // Log the result
                 setPost((prev) => ({
                     ...prev,
-                    imgUrl: reader.result,
+                    img_url: reader.result,
                 }));
             } else {
                 console.error("Reader result is empty");

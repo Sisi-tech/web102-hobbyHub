@@ -19,7 +19,7 @@ const Card = (props) => {
             <p>Posted {props.time}</p>
             <p className='text-xl font-bold'>{props.title}</p>
             <p className='text-xl'>{props.content}</p>
-            <img src={`data:image/jpeg;base64,${props.imgUrl}`} alt="image" />
+            {props.src && <img src={props.src} alt="image" className='w-[140px]' />}
             <div className='flex gap-4'>
                 <button type="button" value={vote} onClick={handleVote}>&#128077;</button>
                 <p>{vote} {vote <= 1 ? 'upvote' : 'upvotes'}</p>
