@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 const Card = (props) => {
     const [vote, setVote] = useState(() => {
@@ -16,13 +20,25 @@ const Card = (props) => {
     }
     return (
         <div className='flex flex-col gap-6 text-black bg-gray-50 justify-start p-4 rounded-md'>
-            <p>Posted {props.time}</p>
             <p className='text-xl font-bold'>{props.title}</p>
-            <p className='text-xl'>{props.content}</p>
-            {props.src && <img src={props.src} alt="image" className='w-[140px]' />}
-            <div className='flex gap-4'>
-                <button type="button" value={vote} onClick={handleVote}>&#128077;</button>
-                <p>{vote} {vote <= 1 ? 'upvote' : 'upvotes'}</p>
+            {props.content && <p className='text-xl'>{props.content}</p>}
+            {props.src && <img src={props.src} alt="image" className='w-[180px]' />}
+            <p>Posted {props.time}</p>
+            <div className='flex justify-between'>
+                <div className='flex gap-4'>
+                    <button type="button" value={vote} onClick={handleVote}>
+                        <FontAwesomeIcon icon={faThumbsUp} />
+                    </button>
+                    <p>{vote} {vote <= 1 ? 'upvote' : 'upvotes'}</p>
+                </div>
+                <div className='flex gap-4'>
+                    <button type="button">
+                        <FontAwesomeIcon icon={faEdit} />
+                    </button>
+                    <button type="button">
+                        <FontAwesomeIcon icon={faTrash} />
+                    </button>
+                </div>
             </div>
         </div>
     )

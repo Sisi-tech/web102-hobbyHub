@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreatePost from "./pages/CreatePost";
 import EditPost from "./pages/EditPost";
 import ReadPost from "./pages/ReadPost";
+import SinglePost from "./pages/SinglePost";
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<ReadPost /> } />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/edit" element={<EditPost /> } />
+          <Route path="/post/:id" element={<SinglePost />} />
         </Routes>
       </BrowserRouter>
     </div>

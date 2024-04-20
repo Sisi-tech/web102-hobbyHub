@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-const EditPost = () => {
+const EditPost = ({ post }) => {
+    const [] = useState(post);
+
+
+
     return (
         <div className="h-screen flex justify-center items-center">
-            Edit post
+            
         </div>
     )
 };
