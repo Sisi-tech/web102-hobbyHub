@@ -9,7 +9,7 @@ const ReadPost = () => {
         const fetchPost = async () => {
             try {
                 const { data, error } = await supabase
-                    .from("hubbyHub")
+                    .from("HubbyHub")
                     .select('*');
                 if (error) {
                     throw error;
@@ -48,7 +48,7 @@ const ReadPost = () => {
     };
 
     return (
-        <div className="h-full w-full flex flex-col justify-center items-center pb-20">
+        <div className="h-full min-h-screen w-full flex flex-col items-center pb-20">
             <div className="h-full flex flex-col w-3/5 pt-10 gap-5">
                 <div className="flex gap-3 justify-start">
                     <p>Order by:</p>

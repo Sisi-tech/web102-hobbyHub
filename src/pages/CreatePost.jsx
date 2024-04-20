@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { supabase } from "../client";
 
 const CreatePost = () => {
-    const [post, setPost] = useState({title: "", content: "", imgUrl: ""});
+    const [post, setPost] = useState({title: "", content: "", img_url: ""});
 
     const createPost = async (e) => {
         e.preventDefault();
@@ -11,8 +11,8 @@ const CreatePost = () => {
             return;
         }
         await supabase
-            .from("hubbyHub")
-            .insert({title: post.title, content: post.content, imgUrl: post.imgUrl});
+            .from("HubbyHub")
+            .insert({title: post.title, content: post.content, img_url: post.img_url});
 
         window.location = "/";
     }
@@ -85,13 +85,13 @@ const CreatePost = () => {
                     <label htmlFor="image" className="pl-2">ImageUrl(Optional)</label>
                     <input
                         id="image"
-                        name="imgUrl"
+                        name="img_url"
                         type="file"
                         accept="image/*"
                         onChange={handleImageChange}
                         className="p-2 border-2 rounded-xl"
                     />
-                    {post.imgUrl && <img src={post.imgUrl} alt="Uploaded image" className="mt-2 w-[200px]" />}
+                    {post.img_url && <img src={post.img_url} alt="Uploaded image" className="mt-2 w-[200px]" />}
                 </div>
                 <button 
                     type="button"
