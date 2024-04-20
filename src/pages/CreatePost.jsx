@@ -10,7 +10,6 @@ const CreatePost = () => {
             alert("Please enter a title");
             return;
         }
-        console.log(hello);
         await supabase
             .from("hubbyHub")
             .insert({title: post.title, content: post.content, imgUrl: post.imgUrl});
@@ -29,18 +28,31 @@ const CreatePost = () => {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         const reader = new FileReader();
-
+    
         reader.onloadend = () => {
-            setPost((prev) => ({
-                ...prev,
-                imgUrl: reader.result,
-            }));
+            if (reader.result) {
+                console.log("Reader result:", reader.result); // Log the result
+                setPost((prev) => ({
+                    ...prev,
+                    imgUrl: reader.result,
+                }));
+            } else {
+                console.error("Reader result is empty");
+            }
+        };        
+    
+        reader.onerror = () => {
+            console.error("Error reading file:", reader.error);
         };
+    
         if (file) {
             reader.readAsDataURL(file);
+        } else {
+            console.error("No file selected");
         }
     };
 
+    
     return (
         <div className="h-screen flex flex-col gap-6 justify-center items-center">
             <h2 className="text-3xl shadow-md">Create a new Post</h2>
@@ -62,7 +74,7 @@ const CreatePost = () => {
                         id="content"
                         name="content"
                         type="text" 
-                        rows="8" 
+                        rows="4" 
                         cols="60" 
                         value={post.content} 
                         onChange={handleChange}

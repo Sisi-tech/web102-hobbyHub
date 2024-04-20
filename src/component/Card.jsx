@@ -15,7 +15,7 @@ const Card = (props) => {
         setVote(prevVote => prevVote + 1);
     }
     return (
-        <div className='flex flex-col gap-6 text-black bg-gray-50 justify-start p-4 rounded-sm'>
+        <div className='flex flex-col gap-6 text-black bg-gray-50 justify-start p-4 rounded-md'>
             <p>Posted {props.time}</p>
             <p className='text-xl font-bold'>{props.title}</p>
             <p className='text-xl'>{props.content}</p>

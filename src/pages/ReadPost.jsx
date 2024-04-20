@@ -10,11 +10,12 @@ const ReadPost = () => {
             try {
                 const { data, error } = await supabase
                     .from("hubbyHub")
-                    .select();
+                    .select('*');
                 if (error) {
                     throw error;
                 }
                 setPosts(data);
+                console.log(data);
             } catch (error) {
                 console.error("Error fetching posts: ", error.message);
             }
@@ -47,7 +48,7 @@ const ReadPost = () => {
     };
 
     return (
-        <div className="h-screen w-full flex flex-col justify-center items-center">
+        <div className="h-full w-full flex flex-col justify-center items-center pb-20">
             <div className="h-full flex flex-col w-3/5 pt-10 gap-5">
                 <div className="flex gap-3 justify-start">
                     <p>Order by:</p>
@@ -55,7 +56,7 @@ const ReadPost = () => {
                         type="button" className="bg-emerald-700 rounded-md p-1 text-gray-50">Newest</button>
                     <button type="button" className="bg-emerald-500 rounded-md p-1 text-gray-50">Most Popular</button>
                 </div>
-                <div>
+                <div className="flex flex-col gap-6">
                 {
                     posts && posts.length > 0 ?
                     posts.map((post) => 
@@ -69,7 +70,7 @@ const ReadPost = () => {
                         />
                     ) : []
                 }
-            </div>
+                </div>
             </div>
         </div>
     )
