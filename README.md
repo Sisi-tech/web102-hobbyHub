@@ -36,6 +36,9 @@ The following **additional** features are implemented:
 * [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
+ <a href="https://www.loom.com/share/4c1a0e04597c4d2899c915bafe934caf">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/4c1a0e04597c4d2899c915bafe934caf-with-play.gif">
+</a>
 
 
 GIF created with ...  
