@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { supabase } from "../client";
-import Card from "../component/Card";
-import getTimeDifference from "../component/GetTime";
+import Card from './Card';
 
-const ReadPost = () => {
-    const [posts, setPosts] = useState([]);
+const Filter = () => {
+    const [posts, setPosts] = useState([])
     const [sortBy, setSortBy] = useState('newest');
 
     useEffect(() => {
@@ -13,18 +11,18 @@ const ReadPost = () => {
             try {
                 const { data, error } = await supabase
                     .from("HubbyHub")
-                    .select('*');
+                    .select("*")
                 if (error) {
                     throw error;
                 }
-                let sortedData;
                 if (sortBy == 'newest') {
-                    sortedData = data.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                    data = data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
                 } else if (sortBy == 'mostPopular') {
-                    sortedData = data.slice().sort((a, b) => b.vote - a.vote );
+                    data = data.sort((a, b) => {
+                        return b.vote - a.vote;
+                    })
                 }
-                setPosts(sortedData);
-                console.log(data);
+                setPosts(data);
             } catch (error) {
                 console.error("Error fetching posts: ", error.message);
             }
@@ -75,7 +73,7 @@ const ReadPost = () => {
                 </div>
             </div>
         </div>
-    )
-};
+    );
+}
 
-export default ReadPost; 
+export default Filter;

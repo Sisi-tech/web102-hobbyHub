@@ -18,7 +18,6 @@ function App() {
           <div className='flex justify-around items-center gap-10'>
             <Link to="/">Home</Link>
             <Link to="/create">Create Post</Link>
-            <Link to="/edit">Edit Post</Link>
           </div>
         </div>
         <Routes>

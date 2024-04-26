@@ -32,10 +32,10 @@ const Card = (props) => {
                     <p>{vote} {vote <= 1 ? 'upvote' : 'upvotes'}</p>
                 </div>
                 <div className='flex gap-4'>
-                    <button type="button">
+                    <button type="button" className='text-gray-500 hover:text-gray-900'>
                         <FontAwesomeIcon icon={faEdit} />
                     </button>
-                    <button type="button">
+                    <button type="button" className='text-gray-500 hover:text-gray-900'>
                         <FontAwesomeIcon icon={faTrash} />
                     </button>
                 </div>
