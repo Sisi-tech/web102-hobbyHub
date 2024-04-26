@@ -35,6 +35,7 @@ const SinglePost = () => {
             <div className='h-full min-h-screen flex flex-col w-3/5 p-10 m-10 gap-5 bg-gray-50'>
                 {post ? (
                     <Card
+                        id={post.id}
                         title={post.title}
                         content={post.content}
                         src={post.img_url}
