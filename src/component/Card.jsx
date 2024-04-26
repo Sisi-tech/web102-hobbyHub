@@ -4,12 +4,22 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { supabase } from "../client";
+import EditPost from '../pages/EditPost';
 
 const Card = (props) => {
     const [vote, setVote] = useState(() => {
         const storedVote = localStorage.getItem(`vote_${props.id}`);
         return storedVote ? parseInt(storedVote) : 0;
     });
+    const [showsEditModal, setShowEditModal] = useState(false);
+
+    const handleEdit = () => {
+        console.log("Edit icon clicked");
+        setShowEditModal(true);
+    }
+    const handleCloseModal = () => {
+        setShowEditModal(false);
+    }
 
     useEffect(() => {
         localStorage.setItem(`vote_${props.id}`, vote.toString());
@@ -50,7 +60,11 @@ const Card = (props) => {
                     <p>{vote} {vote <= 1 ? 'upvote' : 'upvotes'}</p>
                 </div>
                 <div className='flex gap-4'>
-                    <button type="button" className='text-gray-500 hover:text-gray-900'>
+                    <button 
+                        type="button" 
+                        className='text-gray-500 hover:text-gray-900'
+                        onClick={handleEdit}
+                    >
                         <FontAwesomeIcon icon={faEdit} />
                     </button>
                     <button 
@@ -62,8 +76,9 @@ const Card = (props) => {
                     </button>
                 </div>
             </div>
+            {showsEditModal && <EditPost post={props} onClose={handleCloseModal} />}
         </div>
     )
 };
 
-export default Card; 
+export default Card;
