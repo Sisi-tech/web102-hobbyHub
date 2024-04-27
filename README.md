@@ -43,7 +43,7 @@ The following **additional** features are implemented:
   </div>
 
 
-##[Check page here 👉] https://hubby-hub.netlify.app/
+## Check page here 👉 [https://hubby-hub.netlify.app/]
 
 GIF created with ...  
 
