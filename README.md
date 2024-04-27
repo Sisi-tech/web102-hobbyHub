@@ -42,7 +42,8 @@ The following **additional** features are implemented:
     </a>
   </div>
 
-[Check page here 👉]https://hubby-hub.netlify.app/
+
+##[Check page here 👉] https://hubby-hub.netlify.app/
 
 GIF created with ...  
 
