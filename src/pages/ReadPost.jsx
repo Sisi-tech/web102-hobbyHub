@@ -53,18 +53,18 @@ const ReadPost = () => {
         <div className="h-full min-h-screen w-full flex flex-col items-center pb-20">
             <div className="h-full flex flex-col w-3/5 pt-10 gap-5">
                 <div className="flex gap-3 justify-between">
-                    <div className="flex gap-3 justify-start">
-                        <p>Order by:</p>
+                    <div className="flex gap-3 justify-start items-center">
+                        <p className="text-xl">Order by:</p>
                         <button 
                             type="button" 
-                            className="bg-emerald-500 rounded-md p-1 text-gray-50 w-[80px] shadow-md shadow-green-100"
+                            className="bg-emerald-500 rounded-md p-2 text-gray-50 w-[80px] shadow-md shadow-green-100"
                             onClick={() => handleSort('newest')}
                         >
                             Newest
                         </button>
                         <button 
                             type="button" 
-                            className="bg-emerald-500 rounded-md p-1 text-gray-50 w-[120px] shadow-md shadow-green-100"
+                            className="bg-emerald-500 rounded-md p-2 text-gray-50 w-[120px] shadow-md shadow-green-100"
                             onClick={() => handleSort('mostPopular')}
                         >
                             Most Popular
@@ -73,7 +73,7 @@ const ReadPost = () => {
                     <input
                         type="text"
                         placeholder="Search"
-                        className="rounded-full p-2 w-[300px] border-solid shadow-md text-black"
+                        className="rounded-full p-2 w-[300px] border-solid shadow-md text-black text-xl"
                         onChange={handleSearch}
                         value={searchQuery}
                     />
