@@ -23,17 +23,35 @@ const EditPost = ({ post, onClose }) => {
         } catch (error) {
             console.error('Error updating post: ', error.message);
         }
+        window.alert("This post has been updated successfully!");
     }
 
     return (
-        <div className="h-screen flex justify-center items-center">
-            <h2>Edit Post</h2>
-            <label>Title:</label>
-            <input type="text" value={editedTitle} onChange={handleTitleChange} />
-            <label>Content:</label>
-            <textarea value={editedContent} onChange={handleContentChange} />
-            <button onClick={handleSubmit}>Save</button>
-            <button onClick={onClose}>Cancel</button>
+        <div className="flex flex-col justify-center items-center bg-gray-200 p-10 mt-4 gap-5 text-md rounded-md">
+            <h2 className="text-2xl">Edit Post</h2>
+            <div className="flex flex-col gap-2">
+                <label className="text-xl">Title:</label>
+                <input 
+                    type="text" 
+                    value={editedTitle} 
+                    onChange={handleTitleChange} 
+                    className="p-2 rounded-md w-[540px]"
+                />
+            </div>
+            <div className="flex flex-col gap-2">
+                <label className="text-xl">Content:</label>
+                <textarea
+                    rows="4" 
+                    cols="60" 
+                    value={editedContent} 
+                    onChange={handleContentChange} 
+                    className="p-2"
+                />
+            </div>
+            <div className="flex gap-10 pt-4">
+            <button className="bg-emerald-500 rounded-md p-2 text-gray-50 w-[100px] shadow-md shadow-green-100" onClick={handleSubmit}>Save</button>
+            <button className="bg-emerald-500 rounded-md p-2 text-gray-50 w-[100px] shadow-md shadow-green-100" onClick={onClose}>Cancel</button>
+            </div>
         </div>
     )
 };

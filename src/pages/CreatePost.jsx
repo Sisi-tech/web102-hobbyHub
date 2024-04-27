@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { supabase } from "../client";
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import { faTrash } from '@fortawesome/free-solid-svg-icons';
+// import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 const CreatePost = () => {
     const [post, setPost] = useState({title: "", content: "", img_url: ""});
