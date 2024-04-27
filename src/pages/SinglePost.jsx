@@ -42,7 +42,7 @@ const SinglePost = () => {
                         time={getTimeDifference(post.created_at)}
                     />
                 ) : (
-                    <p>"Post is loading ..."</p>
+                    <p className='text-xl text-center'>"Just give me one second 😉..."</p>
                 )}
             </div>
         </div>
