@@ -48,16 +48,20 @@ const Card = (props) => {
 
     return (
         <div className='flex flex-col gap-6 text-black bg-gray-50 justify-start p-4 rounded-md'>
-            <p className='text-xl font-bold'>{props.title}</p>
+            <p className='text-2xl'>{props.title}</p>
             {props.content && <p className='text-xl'>{props.content}</p>}
             {props.src && <img src={props.src} alt="image" className='w-[180px]' />}
             <p>Posted {props.time}</p>
-            <div className='flex justify-between'>
+            <div className='flex justify-between text-xl'>
                 <div className='flex gap-4'>
-                    <button type="button" value={vote} onClick={handleVote}>
+                    <button 
+                        type="button" 
+                        value={vote} 
+                        onClick={handleVote}
+                    >
                         <FontAwesomeIcon icon={faThumbsUp} />
                     </button>
-                    <p>{vote} {vote <= 1 ? 'upvote' : 'upvotes'}</p>
+                    <p >{vote} {vote <= 1 ? 'upvote' : 'upvotes'}</p>
                 </div>
                 <div className='flex gap-4'>
                     <button 
