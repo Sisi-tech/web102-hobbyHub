@@ -1,8 +1,6 @@
-# Web Development Final Project - [hobbyHub](https://hubby-hub.netlify.app/)
+# Web Development - [hobbyHub](https://hubby-hub.netlify.app/)
 
 Sisi Wang
-
-Time spent: **X** 
 
 ## Required Features
 
